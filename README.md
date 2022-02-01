@@ -7,8 +7,13 @@ There are two API that are going to be used in the application:
 - http://universities.hipolabs.com/
   - Documentation/Source under: https://github.com/Hipo/university-domains-list/
 
+
 - https://restcountries.com/
   - Documentation/Source under: https://gitlab.com/amatos/rest-countries
+
+The final web service should be deployed on Heroku. The initial development should occur on your local machine. For the submission, you will need to provide both a URL to the deployed Heroku service as well as your code repository.
+
+In the following, you will find the specification for the REST API exposed to the user for interrogation/testing.
 
 ## How to run the application
 Fastes way to run the application is to run "go run main.go" in the terminal in the main directory.
@@ -17,6 +22,6 @@ To build an .exe file(executibale file) you can run the command "go build main.g
 ## Credits
 
 ## Task List
-- [] Configure the go.mod file
+- [ ] Configure the go.mod file
 
 ## License
