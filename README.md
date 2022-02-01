@@ -16,4 +16,7 @@ To build an .exe file(executibale file) you can run the command "go build main.g
 
 ## Credits
 
+## Task List
+- [] Configure the go.mod file
+
 ## License
