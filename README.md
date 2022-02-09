@@ -22,5 +22,12 @@ To build an .exe file(executibale file) you can run the command "go build main.g
 
 ## Task List
 - [ ] Configure the go.mod file
+- [ ] Make deafult web page
 
 ## License
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
