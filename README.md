@@ -7,7 +7,6 @@ There are two API that are going to be used in the application:
 - http://universities.hipolabs.com/
   - Documentation/Source under: https://github.com/Hipo/university-domains-list/
 
-
 - https://restcountries.com/
   - Documentation/Source under: https://gitlab.com/amatos/rest-countries
 
