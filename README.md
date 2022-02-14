@@ -29,7 +29,8 @@ Refrence code links:
 
 ## Task List
 - [ ] Configure the go.mod file
-- [ ] Make deafult web page
+- [x] Make deafult web page
+- [ ] Make the first REST Method
 
 ## License
                     GNU GENERAL PUBLIC LICENSE
