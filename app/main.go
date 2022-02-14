@@ -46,9 +46,9 @@ func loadPage(title string) (*structs.Page, error) {
 func getport() string {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = ":8080"
+		port = "8080"
 	}
-	return port
+	return ":" + port
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
