@@ -1,4 +1,5 @@
 # assignment_1
+## Assignment task description
 First assignment from the cloud technologi class(prog2005-2022).
 This program is "develop using REST web application for retriving information about universities that may be candidates for application based on their name, alongside useful contextual information pertaining to the country it is situated in. For this purpose, you will interrogate existing web services and return the result in a given output format." Is the task of the assignment. 
 
@@ -19,6 +20,12 @@ Fastes way to run the application is to run "go run main.go" in the terminal in 
 To build an .exe file(executibale file) you can run the command "go build main.go" in the terminal.
 
 ## Credits
+Made by Robin Ruud Kristensen
+
+There is code directery taken from other poeple to make the application better or there have been code that have inspired how to write a spesific part of the code.
+Refrence code links:
+- https://go.dev/doc/articles/wiki/
+- 
 
 ## Task List
 - [ ] Configure the go.mod file
