@@ -57,15 +57,3 @@ func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error during encoding", http.StatusInternalServerError)
 	}
 }
-
-func postUni() {
-
-}
-
-func getCountry() {
-
-}
-
-func postCountry() {
-
-}
