@@ -9,7 +9,7 @@ import (
 
 /*
  * Function to handle what type of request for the application to handle from uni*/
-func uniHandler(w http.ResponseWriter, r *http.Request) {
+func UniHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodPost:
 		handlerPostRequestUni(w, r)
@@ -48,7 +48,7 @@ func handlerPostRequestUni(w http.ResponseWriter, r *http.Request) {
 func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 	uni := structs.Uni{}
 
-	w.Header().Add("contet-type", "application/diag")
+	w.Header().Add("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
 

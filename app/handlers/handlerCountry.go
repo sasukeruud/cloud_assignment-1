@@ -48,7 +48,7 @@ func handlerPostRequestCountry(w http.ResponseWriter, r *http.Request) {
 func handlerGetRequestCountry(w http.ResponseWriter, r *http.Request) {
 	country := structs.Country{}
 
-	w.Header().Add("contet-type", "application/diag")
+	w.Header().Add("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
 
