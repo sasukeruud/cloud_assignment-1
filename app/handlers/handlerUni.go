@@ -8,7 +8,8 @@ import (
 )
 
 /*
- * Function to handle what type of request for the application to handle from uni*/
+ * Function to handle what type of request for the application to handle from uni
+ * code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo */
 func UniHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodPost:
@@ -21,7 +22,9 @@ func UniHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 /*
-* Handler for REST post for Uni*/
+* Handler for REST post for Uni
+* code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
+* It have been modified to fit this application*/
 func handlerPostRequestUni(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	uni := structs.Uni{}
@@ -44,7 +47,9 @@ func handlerPostRequestUni(w http.ResponseWriter, r *http.Request) {
 }
 
 /*
-* Handler for REST get for Uni*/
+* Handler for REST get for Uni
+* code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
+* It have been modified to fit this application*/
 func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 	uni := structs.Uni{}
 

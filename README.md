@@ -25,6 +25,7 @@ Made by Robin Ruud Kristensen
 There is code directery taken from other poeple to make the application better or there have been code that have inspired how to write a spesific part of the code.
 Refrence code links:
 - https://go.dev/doc/articles/wiki/
+- https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
 - 
 
 ## Task List
