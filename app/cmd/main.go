@@ -24,11 +24,11 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fmt.Println("hello world")
 	http.HandleFunc("/", HelloServer)
 
 	http.HandleFunc(constants.UNI_PATH, handlers.UniHandler)
 	http.HandleFunc(constants.COUNTRY_PATH, handlers.CountryHandler)
+	http.HandleFunc(constants.DIAG_PATH, handlers.DiagHandler)
 
 	http.ListenAndServe(getport(), nil)
 }

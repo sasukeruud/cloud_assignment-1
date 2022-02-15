@@ -1,10 +1,14 @@
 package handlers
 
 import (
+	constants "assignment_1/app"
 	"assignment_1/app/structs"
 	"encoding/json"
 	"net/http"
+	"time"
 )
+
+var start time.Time = time.Now()
 
 /*
  * Function to handle what type of request for the application to handle from uni
@@ -24,7 +28,12 @@ func DiagHandler(w http.ResponseWriter, r *http.Request) {
 * code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
 * It have been modified to fit this application*/
 func handlerGetRequestDiag(w http.ResponseWriter, r *http.Request) {
-	country := structs.Diag{}
+	country := structs.Diag{
+		Universitiapi: constants.READ_ALL_UNI,
+		Counteriesapi: constants.READ_ALL_COUNTRIES,
+		Version:       constants.VERSION,
+		Uptime:        time.Duration.Seconds(time.Since(start)),
+	}
 
 	w.Header().Add("contet-type", "application/country")
 
