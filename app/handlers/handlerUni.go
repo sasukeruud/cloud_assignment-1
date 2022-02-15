@@ -54,9 +54,6 @@ func handlerPostRequestUni(w http.ResponseWriter, r *http.Request) {
 func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 	var uni []structs.Uni
 	json.Unmarshal(read.ReadUniAPI("norwegian"), &uni)
-	for i := 0; i < len(uni); i++ {
-		fmt.Print(uni[i].Name + "\n")
-	}
 
 	w.Header().Add("contet-type", "application/json")
 
