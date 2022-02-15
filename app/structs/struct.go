@@ -1,17 +1,5 @@
 package structs
 
-import "time"
-
-//"json"
-
-/*
-* Struct for a page, this is how it will be saved in memory
-* Code from: https://go.dev/doc/articles/wiki/	*/
-type Page []struct {
-	Title string
-	Body  []byte
-}
-
 /*
 * Constructor for a Uni*/
 type Uni struct {
@@ -37,5 +25,5 @@ type Diag struct {
 	Universitiapi string
 	Counteriesapi string
 	Version       string
-	Uptime        time.Timer
+	Uptime        float64
 }
