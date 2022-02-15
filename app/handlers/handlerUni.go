@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	read "assignment_1/app/readData"
 	"assignment_1/app/structs"
 	"encoding/json"
 	"fmt"
@@ -51,7 +52,11 @@ func handlerPostRequestUni(w http.ResponseWriter, r *http.Request) {
 * code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
 * It have been modified to fit this application*/
 func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
-	uni := structs.Uni{}
+	var uni []structs.Uni
+	json.Unmarshal(read.ReadUniAPI("norwegian"), &uni)
+	for i := 0; i < len(uni); i++ {
+		fmt.Print(uni[i].Name + "\n")
+	}
 
 	w.Header().Add("contet-type", "application/json")
 

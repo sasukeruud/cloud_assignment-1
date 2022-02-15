@@ -11,9 +11,9 @@ import (
 	"os"
 )
 
-func ReadUniAPI() {
+func ReadUniAPI(search string) []byte {
 	//http://universities.hipolabs.com/search?name=
-	response, err := http.Get(constants.READ_ALL_UNI + "Marywood")
+	response, err := http.Get(constants.READ_ALL_UNI + search)
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -24,11 +24,14 @@ func ReadUniAPI() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(string(responseData))
+	//fmt.Println(string(responseData))
 
-	uni := structs.Uni{}
-	json.Unmarshal(responseData, &uni)
-	fmt.Println(uni.Name)
+	/*
+		var uni structs.Uni
+		json.Unmarshal(responseData, &uni)
+		fmt.Println("uni name:" + uni.Name)
+	*/
+	return responseData
 }
 
 func readCountriesAPI() {
