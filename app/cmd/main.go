@@ -1,12 +1,11 @@
 package main
 
 import (
+	constants "assignment_1/app"
+	"assignment_1/app/handlers"
 	"fmt"
 	"net/http"
 	"os"
-	//"./structs"
-	//"strings"
-	//"log"
 )
 
 /*
@@ -27,5 +26,9 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 func main() {
 	fmt.Println("hello world")
 	http.HandleFunc("/", HelloServer)
+
+	http.HandleFunc(constants.UNI_PATH, handlers.UniHandler)
+	http.HandleFunc(constants.COUNTRY_PATH, handlers.CountryHandler)
+
 	http.ListenAndServe(getport(), nil)
 }
