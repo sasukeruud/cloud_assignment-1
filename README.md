@@ -28,11 +28,6 @@ Refrence code links:
 - https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
 - 
 
-## Task List
-- [x] Configure the go.mod file
-- [x] Make deafult web page
-- [ ] Make the first REST Method
-
 ## License
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
