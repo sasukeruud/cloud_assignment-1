@@ -24,8 +24,8 @@ type Uni struct {
 /*
 * Constructor for a country */
 type Country struct {
-	name           string `json:"name"`
-	aplha_two_code string `json:"aplha2Code"`
-	region         string `json:"region"`
-	capital        string `json:"captial"`
+	Name           string `json:"name"`
+	Aplha_two_code string `json:"aplha2Code"`
+	Region         string `json:"region"`
+	Capital        string `json:"captial"`
 }
