@@ -28,7 +28,7 @@ Refrence code links:
 - 
 
 ## Task List
-- [ ] Configure the go.mod file
+- [x] Configure the go.mod file
 - [x] Make deafult web page
 - [ ] Make the first REST Method
 
