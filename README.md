@@ -16,8 +16,8 @@ The final web service should be deployed on Heroku. The initial development shou
 In the following, you will find the specification for the REST API exposed to the user for interrogation/testing.
 
 ## How to run the application
-Fastes way to run the application is to run "go run main.go" in the terminal in the main directory.
-To build an .exe file(executibale file) you can run the command "go build main.go" in the terminal.
+Fastes way to run the application is to run "go run app\cmd\main.go" in the terminal in the main directory.
+To build an .exe file(executibale file) you can run the command "go build app\cmd\main.go" in the terminal.
 
 ## Credits
 Made by Robin Ruud Kristensen
