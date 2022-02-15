@@ -13,12 +13,12 @@ type Page []struct {
 /*
 * Constructor for a Uni*/
 type Uni struct {
-	webpage        string `json:"web_pages"`
-	name           string `json:"name"`
-	aplha_two_code string `json:"aplha_two_code`
-	state_province string `json:"state-province"`
-	domains        string `json:"domains"`
-	country        string `json:"country"`
+	Webpage        string `json:"web_pages"`
+	Name           string `json:"name"`
+	Aplha_two_code string `json:"aplha_two_code`
+	State_province string `json:"state-province"`
+	Domains        string `json:"domains"`
+	Country        string `json:"country"`
 }
 
 /*
