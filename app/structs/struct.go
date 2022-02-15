@@ -1,5 +1,7 @@
 package structs
 
+import "time"
+
 //"json"
 
 /*
@@ -28,4 +30,13 @@ type Country struct {
 	Aplha_two_code string `json:"aplha2Code"`
 	Region         string `json:"region"`
 	Capital        string `json:"captial"`
+}
+
+/*
+* Constructor for Diag information*/
+type Diag struct {
+	Universitiapi string
+	Counteriesapi string
+	Version       string
+	Uptime        time.Timer
 }
