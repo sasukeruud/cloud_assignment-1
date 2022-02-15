@@ -9,7 +9,7 @@ import (
 
 /*
  * Function to handle what type of request for the application to handle from uni*/
-func countryHandler(w http.ResponseWriter, r *http.Request) {
+func CountryHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodPost:
 		handlerPostRequestCountry(w, r)
@@ -46,9 +46,13 @@ func handlerPostRequestCountry(w http.ResponseWriter, r *http.Request) {
 /*
 * Handler for REST get for Country*/
 func handlerGetRequestCountry(w http.ResponseWriter, r *http.Request) {
-	country := structs.Country{}
+	country := structs.Country{
+		Name:           "Norge",
+		Aplha_two_code: "NO",
+		Region:         "Europe",
+		Capital:        "Oslo"}
 
-	w.Header().Add("contet-type", "application/json")
+	w.Header().Add("contet-type", "application/country")
 
 	encoder := json.NewEncoder(w)
 
