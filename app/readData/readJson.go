@@ -36,7 +36,6 @@ The const READ_ALL_COUNTRIES is the URL for the api.
 var search string -> varible for what to be search for
 return responseData -> returns a byte slice of information */
 func readCountriesAPI(search string) []byte {
-	//https://restcountries.com/v3.1/
 	response, err := http.Get(constants.READ_ALL_COUNTRIES + search)
 
 	if err != nil {

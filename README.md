@@ -20,6 +20,15 @@ Fastes way to run the application is to run "go run app\cmd\main.go" in the term
 To build an .exe file(executibale file) you can run the command "go build app\cmd\main.go" in the terminal.
 
 ## How to use the api
+There is three different URLs avaieble to use from this api.
+
+- /unisearcher/v1/uniinfo/
+  This URL is used to search up different universeties from the URL.           /unisearcher/v1/uniinfo/xxxx the xxxx is were you will use a keyword for the search. 
+
+- /unisearcher/v1/diag/
+  This URL will give out information about this api and if the other apis used for it is availeble.
+
+- /unisearcher/v1/
 
 ### How the api used in the application works
 - http://universities.hipolabs.com/
