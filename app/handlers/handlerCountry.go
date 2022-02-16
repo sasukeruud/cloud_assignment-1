@@ -7,8 +7,8 @@ import (
 )
 
 /*
- * Function to handle what type of request for the application to handle from uni
- * code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo */
+Function to handle what type of request for the application to handle from uni
+code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo */
 func CountryHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
@@ -19,9 +19,9 @@ func CountryHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 /*
-* Handler for REST get for Country
-* code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
-* It have been modified to fit this application*/
+Handler for REST get for Country
+code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
+It have been modified to fit this application*/
 func handlerGetRequestCountry(w http.ResponseWriter, r *http.Request) {
 	country := structs.Country{
 		Name:           "Norge",

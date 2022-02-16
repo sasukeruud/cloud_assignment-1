@@ -9,8 +9,8 @@ import (
 )
 
 /*
-* Function to get a spesific port to run the application on.
-* It's needed for the application to run on heroku where to application is run on.*/
+Function to get a spesific port to run the application on.
+It's needed for the application to run on heroku where to application is run on.*/
 func getport() string {
 	port := os.Getenv("PORT")
 	if port == "" {

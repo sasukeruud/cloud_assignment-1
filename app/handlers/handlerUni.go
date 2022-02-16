@@ -9,8 +9,8 @@ import (
 )
 
 /*
- * Function to handle what type of request for the application to handle from uni
- * code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo */
+Function to handle what type of request for the application to handle from uni
+code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo */
 func UniHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
@@ -21,9 +21,9 @@ func UniHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 /*
-* Handler for REST get for Uni
-* some of the code is taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
-* It have been modified to fit this application*/
+Handler for REST get for Uni
+some of the code is taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
+It have been modified to fit this application*/
 func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 	search := path.Base(r.URL.Path)
 
