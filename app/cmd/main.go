@@ -20,7 +20,7 @@ func getport() string {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Helllo, %s!", r.URL.Path[1:])
+	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 }
 
 func main() {

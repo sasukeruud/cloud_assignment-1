@@ -16,7 +16,7 @@ func UniHandler(w http.ResponseWriter, r *http.Request) {
 	case http.MethodGet:
 		handlerGetRequestUni(w, r)
 	default:
-		http.Error(w, "Method not supported. Currentlyonly GET and 	POST are supported", http.StatusNotImplemented)
+		http.Error(w, "Method not supported. Currentlyonly GET are supported", http.StatusNotImplemented)
 	}
 }
 

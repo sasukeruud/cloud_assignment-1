@@ -19,7 +19,7 @@ func DiagHandler(w http.ResponseWriter, r *http.Request) {
 	case http.MethodGet:
 		handlerGetRequestDiag(w, r)
 	default:
-		http.Error(w, "Method not supported. Currentlyonly GET and 	POST are supported", http.StatusNotImplemented)
+		http.Error(w, "Method not supported. Currentlyonly GET are supported", http.StatusNotImplemented)
 	}
 }
 
@@ -35,7 +35,7 @@ func handlerGetRequestDiag(w http.ResponseWriter, r *http.Request) {
 		Uptime:        time.Duration.Seconds(time.Since(start)),
 	}
 
-	w.Header().Add("contet-type", "application/country")
+	w.Header().Add("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
 

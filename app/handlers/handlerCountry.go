@@ -14,7 +14,7 @@ func CountryHandler(w http.ResponseWriter, r *http.Request) {
 	case http.MethodGet:
 		handlerGetRequestCountry(w, r)
 	default:
-		http.Error(w, "Method not supported. Currentlyonly GET and 	POST are supported", http.StatusNotImplemented)
+		http.Error(w, "Method not supported. Currentlyonly GET are supported", http.StatusNotImplemented)
 	}
 }
 
@@ -29,7 +29,7 @@ func handlerGetRequestCountry(w http.ResponseWriter, r *http.Request) {
 		Region:         "Europe",
 		Capital:        "Oslo"}
 
-	w.Header().Add("contet-type", "application/country")
+	w.Header().Add("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
 
