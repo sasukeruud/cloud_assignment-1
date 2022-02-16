@@ -11,9 +11,7 @@ import (
 
 /*
 * Function to read information from the http://universities.hipolabs.com/ api.
-* 	The api works that you need a keyword to search for and READ_ALL_UNI const
-*	have the URL without the keyword used for searching, there is were the search
-*	varible is used
+* the const READ_ALL_UNI is the URL for the api.
 * var search string -> varible for what to be search for
 * return responseData -> returns a byte slice of information */
 func ReadUniAPI(search string) []byte {
@@ -33,7 +31,10 @@ func ReadUniAPI(search string) []byte {
 }
 
 /*
-* */
+* Function to read information from the https://restcountries.com/v3.1/ api.
+* The const READ_ALL_COUNTRIES is the URL for the api.
+* var search string -> varible for what to be search for
+* return responseData -> returns a byte slice of information */
 func readCountriesAPI(search string) []byte {
 	//https://restcountries.com/v3.1/
 	response, err := http.Get(constants.READ_ALL_COUNTRIES + search)
