@@ -30,7 +30,7 @@ func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 	var uni []structs.Uni
 	json.Unmarshal(read.ReadUniAPI(search), &uni)
 
-	w.Header().Add("contet-type", "application/json")
+	w.Header().Set("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
 

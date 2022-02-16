@@ -43,7 +43,7 @@ func handlerGetRequestDiag(w http.ResponseWriter, r *http.Request) {
 		Uptime:        time.Duration.Seconds(time.Since(start)),
 	}
 
-	w.Header().Add("contet-type", "application/json")
+	w.Header().Set("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
 
