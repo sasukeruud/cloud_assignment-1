@@ -18,10 +18,14 @@ Constructor for a country
 Parameters in the constructor are:
 Name, Aplha_two_code, Region, Capital*/
 type Country struct {
-	Name           string `json:"name"`
-	Aplha_two_code string `json:"aplha2Code"`
-	Region         string `json:"region"`
-	Capital        string `json:"captial"`
+	Name struct {
+		Common   string `json:"common"`
+		Official string `json:"official"`
+	}
+	//Name           string   `json:"name"`
+	Aplha_two_code string   `json:"aplha2Code"`
+	Region         string   `json:"region"`
+	Capital        []string `json:"capital"`
 }
 
 /*
@@ -29,8 +33,8 @@ Constructor for Diag information
 Parameters in the constructor are:
 Universitiapi, Countriesapi, Version, Uptime*/
 type Diag struct {
-	Universitiapi string
-	Counteriesapi string
+	Universitiapi int
+	Counteriesapi int
 	Version       string
 	Uptime        float64
 }
