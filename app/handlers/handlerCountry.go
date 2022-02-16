@@ -4,6 +4,7 @@ import (
 	read "assignment_1/app/readData"
 	"assignment_1/app/structs"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"path"
 )
@@ -28,6 +29,8 @@ func handlerGetRequestCountry(w http.ResponseWriter, r *http.Request) {
 	search := path.Base(r.URL.Path)
 
 	var country []structs.Country
+
+	fmt.Println(search)
 	json.Unmarshal(read.ReadCountriesAPI(search), &country)
 
 	w.Header().Add("contet-type", "application/json")
