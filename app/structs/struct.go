@@ -1,7 +1,9 @@
 package structs
 
 /*
-Constructor for a Uni*/
+Constructor for a Uni
+Paremeters in the constructor are:
+Webpage, Name, Aplha_two_code, Domains, Country, State_province*/
 type Uni struct {
 	Webpage        []string `json:"web_pages"`
 	Name           string   `json:"name"`
@@ -12,7 +14,9 @@ type Uni struct {
 }
 
 /*
-Constructor for a country */
+Constructor for a country
+Parameters in the constructor are:
+Name, Aplha_two_code, Region, Capital*/
 type Country struct {
 	Name           string `json:"name"`
 	Aplha_two_code string `json:"aplha2Code"`
@@ -21,7 +25,9 @@ type Country struct {
 }
 
 /*
-Constructor for Diag information*/
+Constructor for Diag information
+Parameters in the constructor are:
+Universitiapi, Countriesapi, Version, Uptime*/
 type Diag struct {
 	Universitiapi string
 	Counteriesapi string
