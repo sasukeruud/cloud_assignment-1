@@ -28,7 +28,7 @@ func DiagHandler(w http.ResponseWriter, r *http.Request) {
 * code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
 * It have been modified to fit this application*/
 func handlerGetRequestDiag(w http.ResponseWriter, r *http.Request) {
-	country := structs.Diag{
+	diag := structs.Diag{
 		Universitiapi: constants.READ_ALL_UNI,
 		Counteriesapi: constants.READ_ALL_COUNTRIES,
 		Version:       constants.VERSION,
@@ -39,7 +39,7 @@ func handlerGetRequestDiag(w http.ResponseWriter, r *http.Request) {
 
 	encoder := json.NewEncoder(w)
 
-	err := encoder.Encode(country)
+	err := encoder.Encode(diag)
 	if err != nil {
 		http.Error(w, "Error during encoding", http.StatusInternalServerError)
 	}
