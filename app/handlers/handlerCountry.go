@@ -3,7 +3,6 @@ package handlers
 import (
 	"assignment_1/app/structs"
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -12,38 +11,11 @@ import (
  * code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo */
 func CountryHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
-	case http.MethodPost:
-		handlerPostRequestCountry(w, r)
 	case http.MethodGet:
 		handlerGetRequestCountry(w, r)
 	default:
 		http.Error(w, "Method not supported. Currentlyonly GET and 	POST are supported", http.StatusNotImplemented)
 	}
-}
-
-/*
-* Handler for REST post for Country
-* code taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
-* It have been modified to fit this application*/
-func handlerPostRequestCountry(w http.ResponseWriter, r *http.Request) {
-	decoder := json.NewDecoder(r.Body)
-	country := structs.Country{}
-
-	err := decoder.Decode(&country)
-	if err != nil {
-		http.Error(w, "Error during decoding", http.StatusInternalServerError)
-		return
-	}
-
-	output, err := json.MarshalIndent(country, "", "")
-	if err != nil {
-		http.Error(w, "Error during pretty printing", http.StatusInternalServerError)
-		return
-	}
-
-	fmt.Println(string(output))
-
-	http.Error(w, "OK", http.StatusOK)
 }
 
 /*
