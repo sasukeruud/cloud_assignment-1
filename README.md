@@ -19,6 +19,15 @@ In the following, you will find the specification for the REST API exposed to th
 Fastes way to run the application is to run "go run app\cmd\main.go" in the terminal in the main directory.
 To build an .exe file(executibale file) you can run the command "go build app\cmd\main.go" in the terminal.
 
+## How to use the api
+
+### How the api used in the application works
+- http://universities.hipolabs.com/
+  The api works that you need a keyword to use if you want to search for a universety. It can be a completed name or partiale completed. http://universities.hipolabs.com/search?name=xxxx is how the URL is build up and xxxx is where the keyword for searching need to be writen. 
+
+- https://restcountries.com/v3.1/
+  The api works that you need a keyword to search for a country or you can use "ALL" to get all countries. https://restcountries.com/v3.1/xxxx where xxxx is were you need to insert the keyword to search for a country
+
 ## Credits
 Made by Robin Ruud Kristensen
 
