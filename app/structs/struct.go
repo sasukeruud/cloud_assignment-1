@@ -7,7 +7,6 @@ Webpage, Name, Aplha_two_code, Domains, Country, State_province*/
 type Uni struct {
 	Webpage        []string `json:"web_pages"`
 	Name           string   `json:"name"`
-	Aplha_two_code string   `json:"aplha_two_code"`
 	Domains        []string `json:"domains"`
 	Country        string   `json:"country"`
 	State_province string   `json:"state-province,omitempty"`
@@ -21,11 +20,35 @@ type Country struct {
 	Name struct {
 		Common   string `json:"common"`
 		Official string `json:"official"`
-	}
-	//Name           string   `json:"name"`
-	Aplha_two_code string   `json:"aplha2Code"`
-	Region         string   `json:"region"`
-	Capital        []string `json:"capital"`
+	} `json:"name"`
+	Cca2     string   `json:"cca2"`
+	Region   string   `json:"region"`
+	Capital  []string `json:"capital"`
+	Language struct {
+		Nno string `json:"nno"`
+		Nob string `json:"nob"`
+		Smi string `json:"smi"`
+	} `json:"languages,omitempty"`
+	Maps struct {
+		OpenStreetMaps string `json:"openStreetMaps"`
+	} `json:"maps"`
+}
+
+type UniInfo struct {
+	Webpage  []string `json:"web_pages"`
+	NameUni  string   `json:"name"`
+	Domains  []string `json:"domains"`
+	Country  string   `json:"country"`
+	Cca2     string   `json:"cca2"`
+	Capital  []string `json:"capital"`
+	Language struct {
+		Nno string `json:"nno"`
+		Nob string `json:"nob"`
+		Smi string `json:"smi"`
+	} `json:"languages,omitempty"`
+	Maps struct {
+		OpenStreetMaps string `json:"openStreetMaps"`
+	} `json:"maps"`
 }
 
 /*
