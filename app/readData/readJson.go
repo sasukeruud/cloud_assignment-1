@@ -2,8 +2,6 @@ package readApi
 
 import (
 	constants "assignment_1/app"
-	"assignment_1/app/structs"
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -11,8 +9,14 @@ import (
 	"os"
 )
 
+/*
+* Function to read information from the http://universities.hipolabs.com/ api.
+* 	The api works that you need a keyword to search for and READ_ALL_UNI const
+*	have the URL without the keyword used for searching, there is were the search
+*	varible is used
+* var search string -> varible for what to be search for
+* return responseData -> returns a byte slice of information */
 func ReadUniAPI(search string) []byte {
-	//http://universities.hipolabs.com/search?name=
 	response, err := http.Get(constants.READ_ALL_UNI + search)
 
 	if err != nil {
@@ -24,19 +28,15 @@ func ReadUniAPI(search string) []byte {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//fmt.Println(string(responseData))
 
-	/*
-		var uni structs.Uni
-		json.Unmarshal(responseData, &uni)
-		fmt.Println("uni name:" + uni.Name)
-	*/
 	return responseData
 }
 
-func readCountriesAPI() {
+/*
+* */
+func readCountriesAPI(search string) []byte {
 	//https://restcountries.com/v3.1/
-	response, err := http.Get(constants.READ_ALL_COUNTRIES + "")
+	response, err := http.Get(constants.READ_ALL_COUNTRIES + search)
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -47,9 +47,6 @@ func readCountriesAPI() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(string(responseData))
 
-	country := structs.Country{}
-	json.Unmarshal(responseData, &country)
-	fmt.Println(country.Name)
+	return responseData
 }
