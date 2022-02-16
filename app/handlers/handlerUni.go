@@ -27,14 +27,15 @@ It have been modified to fit this application*/
 func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 	search := path.Base(r.URL.Path)
 
-	var uni []structs.Uni
-	json.Unmarshal(read.ReadUniAPI(search), &uni)
+	var uniInfo []structs.UniInfo
+	json.Unmarshal(read.ReadUniAPI(search), &uniInfo)
+	json.Unmarshal(read.ReadCountriesAPI(uniInfo[0].Country), &uniInfo)
 
 	w.Header().Set("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
 
-	err := encoder.Encode(uni)
+	err := encoder.Encode(uniInfo)
 	if err != nil {
 		http.Error(w, "Error during encoding", http.StatusInternalServerError)
 	}
