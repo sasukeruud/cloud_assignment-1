@@ -31,7 +31,8 @@ func handlerGetRequestCountry(w http.ResponseWriter, r *http.Request) {
 	var country []structs.Country
 
 	fmt.Println(search)
-	json.Unmarshal(read.ReadCountriesAPI(search), &country)
+	//json.Unmarshal(read.ReadCountriesAPI(search), &country)
+	read.ReadCountriesAPI(search)
 
 	w.Header().Add("contet-type", "application/json")
 

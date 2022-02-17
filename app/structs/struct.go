@@ -35,13 +35,13 @@ type Country struct {
 }
 
 type UniInfo struct {
-	Webpage  []string `json:"web_pages"`
-	NameUni  string   `json:"name"`
-	Domains  []string `json:"domains"`
-	Country  string   `json:"country"`
-	Cca2     string   `json:"cca2"`
-	Capital  []string `json:"capital"`
-	Language struct {
+	Webpage     []string `json:"web_pages"`
+	NameUni     string   `json:"name"`
+	Domains     []string `json:"domains"`
+	CountryName string   `json:"country"`
+	Cca2        string   `json:"cca2"`
+	Capital     []string `json:"capital"`
+	Language    struct {
 		Nno string `json:"nno"`
 		Nob string `json:"nob"`
 		Smi string `json:"smi"`
@@ -49,6 +49,15 @@ type UniInfo struct {
 	Maps struct {
 		OpenStreetMaps string `json:"openStreetMaps"`
 	} `json:"maps"`
+}
+
+func (f *UniInfo) SetCca2(cca2 []Country) {
+	f.Cca2 = cca2[0].Cca2
+}
+
+type UniInfo2 struct {
+	UniDetails     []Uni
+	CountryDetails []Country
 }
 
 /*
