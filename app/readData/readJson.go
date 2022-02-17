@@ -36,19 +36,8 @@ func ReadUniAPI(search string) []structs.UniInfo {
 
 	json.Unmarshal(responseData, &uniInfo)
 	for i := 0; i < len(uniInfo); i++ {
-		//fmt.Println(uniInfo[i].CountryName)
-		ReadCountriesAPI(strings.ToLower(uniInfo[i].CountryName))
 		uniInfo[i].SetCca2(ReadCountriesAPI(strings.ToLower(uniInfo[i].CountryName)))
-		//&uniInfo[i].Cca2 = &CountryInfo.Cca2
-		//CountryInfo.Cca2 = "NO"
-		//fmt.Print(CountryInfo.Cca2)
-		//uniInfo[i].SetCca2(CountryInfo.Cca2)
-		//&uniInfo[i].Cca2 = CountryInfo.Cca2
-		//CountryInfo.Cca2 = &uniInfo[i].Cca2
-		//fmt.Println((uniInfo[i].Cca2))
-		//uniInfo[i].Country = &CountryInfo
 	}
-	//json.Unmarshal(ReadCountriesAPI(uniInfo[0].Country), &uniInfo[0])
 
 	return uniInfo
 }
