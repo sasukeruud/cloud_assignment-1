@@ -51,8 +51,11 @@ type UniInfo struct {
 	} `json:"maps"`
 }
 
-func (f *UniInfo) SetCca2(cca2 []Country) {
-	f.Cca2 = cca2[0].Cca2
+func (o *UniInfo) SetCca2(country []Country) {
+	o.Cca2 = country[0].Cca2
+	o.Capital = country[0].Capital
+	o.Language = country[0].Language
+	o.Maps = country[0].Maps
 }
 
 type UniInfo2 struct {
