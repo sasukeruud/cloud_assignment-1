@@ -26,19 +26,6 @@ It have been modified to fit this application*/
 func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 	search := path.Base(r.URL.Path)
 
-	/*
-		var uniInfo []structs.UniInfo
-		json.Unmarshal(read.ReadUniAPI(search), &uniInfo)
-
-		json.Unmarshal(read.ReadUniAPI(search), &uniInfo)
-		for i := 0; i < len(uniInfo); i++ {
-			country := uniInfo[i].Country
-			fmt.Println(country)
-			json.Unmarshal(read.ReadCountriesAPI(strings.ToLower(country)), &uniInfo)
-		}
-		//json.Unmarshal(read.ReadCountriesAPI(uniInfo[0].Country), &uniInfo)
-	*/
-
 	w.Header().Set("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
