@@ -1,18 +1,6 @@
 package structs
 
 /*
-Constructor for a Uni
-Paremeters in the constructor are:
-Webpage, Name, Aplha_two_code, Domains, Country, State_province*/
-type Uni struct {
-	Webpage        []string `json:"web_pages"`
-	Name           string   `json:"name"`
-	Domains        []string `json:"domains"`
-	Country        string   `json:"country"`
-	State_province string   `json:"state-province,omitempty"`
-}
-
-/*
 Constructor for a country
 Parameters in the constructor are:
 Name, Aplha_two_code, Region, Capital*/
@@ -34,6 +22,12 @@ type Country struct {
 	} `json:"maps"`
 }
 
+/*
+Constructor for universety information.
+Parameter in the constructor are:
+Webpage, NameUni, Domains, CountryName, Cca2, Capital, Maps
+Parameter: Language will be changed to be more fitting at a later date
+*/
 type UniInfo struct {
 	Webpage     []string `json:"web_pages"`
 	NameUni     string   `json:"name"`
@@ -51,16 +45,18 @@ type UniInfo struct {
 	} `json:"maps"`
 }
 
-func (o *UniInfo) SetCca2(country []Country) {
+/*
+Setter function.
+The fields it will edit is:
+Cca2, Capital, Language, Maps
+o *UniInfo -> says that it is a UniInfo object that the function will work on
+country []Country -> country slice needed for the function to do it\s funtions
+*/
+func (o *UniInfo) SetCountryInfo(country []Country) {
 	o.Cca2 = country[0].Cca2
 	o.Capital = country[0].Capital
 	o.Language = country[0].Language
 	o.Maps = country[0].Maps
-}
-
-type UniInfo2 struct {
-	UniDetails     []Uni
-	CountryDetails []Country
 }
 
 /*
