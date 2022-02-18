@@ -17,7 +17,7 @@ Function to read information from the http://universities.hipolabs.com/ api.
 the const READ_ALL_UNI is the URL for the api.
 var search string -> varible for what to be search for.
 return uniInfo -> returns slice information about the universety */
-func ReadUniAPI(search string) []structs.UniInfo {
+func ReadUniInfo(search string) []structs.UniInfo {
 	var uniInfo []structs.UniInfo
 
 	response, err := http.Get(constants.READ_ALL_UNI + search)
@@ -34,7 +34,21 @@ func ReadUniAPI(search string) []structs.UniInfo {
 
 	json.Unmarshal(responseData, &uniInfo)
 	for i := 0; i < len(uniInfo); i++ {
-		uniInfo[i].SetCountryInfo(ReadCountriesAPI(strings.ToLower(uniInfo[i].CountryName)))
+		var countryInfo []structs.Country
+		response, err := http.Get(constants.READ_ALL_COUNTRIES + strings.ToLower(uniInfo[i].CountryName))
+
+		if err != nil {
+			fmt.Print(err.Error())
+			os.Exit(1)
+		}
+
+		responseData, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		json.Unmarshal(responseData, &countryInfo)
+		uniInfo[i].SetCountryInfo(countryInfo)
 	}
 
 	return uniInfo
