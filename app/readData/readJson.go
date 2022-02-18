@@ -54,6 +54,12 @@ func ReadUniInfo(search string) []structs.UniInfo {
 	return uniInfo
 }
 
+func ReadCountryUniInfo(search string) []structs.UniInfo {
+	var uniInfo []structs.UniInfo
+
+	return uniInfo
+}
+
 /*
 Function to read information from the https://restcountries.com/v3.1/ api.
 The const READ_ALL_COUNTRIES is the URL for the api.

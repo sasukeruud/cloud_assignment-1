@@ -30,7 +30,7 @@ func handlerGetRequestUniNeighbor(w http.ResponseWriter, r *http.Request) {
 
 	encoder := json.NewEncoder(w)
 
-	err := encoder.Encode(read.ReadUniInfo(search))
+	err := encoder.Encode(read.ReadCountryUniInfo(search))
 	if err != nil {
 		http.Error(w, "Error during encoding", http.StatusInternalServerError)
 	}
