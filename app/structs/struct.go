@@ -24,8 +24,8 @@ type Country struct {
 }
 
 /*
-Constructor for universety information.
-Parameter in the constructor are:
+Constructor for university information.
+Parameter in the constructor is:
 Webpage, NameUni, Domains, CountryName, Cca2, Capital, Maps
 Parameter: Language will be changed to be more fitting at a later date
 */
@@ -51,7 +51,7 @@ Setter function.
 The fields it will edit is:
 Cca2, Capital, Language, Maps
 o *UniInfo -> says that it is a UniInfo object that the function will work on
-country []Country -> country slice needed for the function to do it\s funtions
+country []Country -> country slice needed for the function to do it's functions
 */
 func (o *UniInfo) SetCountryInfo(country []Country) {
 	o.Cca2 = country[0].Cca2
