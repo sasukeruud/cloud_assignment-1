@@ -20,7 +20,6 @@ func getport() string {
 
 func main() {
 	http.HandleFunc(constants.UNI_PATH, handlers.UniHandler)
-	http.HandleFunc(constants.COUNTRY_PATH, handlers.CountryHandler)
 	http.HandleFunc(constants.COUNTRY_UNI_PATH, handlers.UniNeighborHandler)
 	http.HandleFunc(constants.DIAG_PATH, handlers.DiagHandler)
 
