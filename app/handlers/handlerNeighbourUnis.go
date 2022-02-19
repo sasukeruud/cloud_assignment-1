@@ -22,7 +22,7 @@ func UniNeighborHandler(w http.ResponseWriter, r *http.Request) {
 /*
 Handler for REST get for Uni
 some of the code is taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
-It have been modified to fit this application*/
+It has been modified to fit this application*/
 func handlerGetRequestUniNeighbor(w http.ResponseWriter, r *http.Request) {
 	search := strings.SplitAfter(r.URL.Path, "/")
 
