@@ -3,6 +3,7 @@ package handlers
 import (
 	read "assignment_1/app/readData"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strings"
 )
@@ -25,6 +26,9 @@ some of the code is taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog
 It has been modified to fit this application*/
 func handlerGetRequestUniNeighbor(w http.ResponseWriter, r *http.Request) {
 	search := strings.SplitAfter(r.URL.Path, "/")
+
+	query := r.URL.Query()
+	fmt.Println(query)
 
 	w.Header().Set("contet-type", "application/json")
 
