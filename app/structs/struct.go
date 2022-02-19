@@ -3,7 +3,7 @@ package structs
 /*
 Constructor for a country
 Parameters in the constructor are:
-Name, Aplha_two_code, Region, Capital*/
+Name, Cca2, Region, Capital, Borders, Language, Maps*/
 type Country struct {
 	Name struct {
 		Common   string `json:"common"`
