@@ -35,7 +35,7 @@ func ReadUniInfo(search string) []structs.UniInfo {
 	json.Unmarshal(responseData, &uniInfo)
 	for i := 0; i < len(uniInfo); i++ {
 		var countryInfo []structs.Country
-		response, err := http.Get(constants.READ_ALL_COUNTRIES + strings.ToLower(uniInfo[i].CountryName))
+		response, err := http.Get(constants.READ_ALL_COUNTRIES_NAME + strings.ToLower(uniInfo[i].CountryName))
 
 		if err != nil {
 			fmt.Print(err.Error())
@@ -54,8 +54,69 @@ func ReadUniInfo(search string) []structs.UniInfo {
 	return uniInfo
 }
 
-func ReadCountryUniInfo(search string) []structs.UniInfo {
+func ReadCountryUniInfo(searchCountry, searchUni string) []structs.UniInfo {
 	var uniInfo []structs.UniInfo
+	var countryInfo []structs.Country
+
+	responseCountry, err := http.Get(constants.READ_ALL_COUNTRIES_NAME + strings.ToLower(searchCountry))
+
+	if err != nil {
+		fmt.Print(err.Error())
+		os.Exit(1)
+	}
+
+	responseCountryData, err := ioutil.ReadAll(responseCountry.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	json.Unmarshal(responseCountryData, &countryInfo)
+
+	uniInfo = ReadUniInfo(searchUni + "&country=" + countryInfo[0].Name.Common)
+
+	//for i := 0; i < len(countryInfo[0].Borders); i++ {
+	for i := 0; i < len(countryInfo[0].Borders); i++ {
+		var uniInfo2 []structs.UniInfo
+		var borderCountry []structs.Country
+		fmt.Println(countryInfo[0].Borders[i])
+
+		responseCountry, err := http.Get(constants.READ_ALL_COUNTRIES_APLHA + strings.ToLower(countryInfo[0].Borders[i]))
+
+		if err != nil {
+			fmt.Print(err.Error())
+			os.Exit(1)
+		}
+
+		responseCountryData, err := ioutil.ReadAll(responseCountry.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		json.Unmarshal(responseCountryData, &borderCountry)
+
+		//responseUni, err := http.Get(constants.READ_ALL_UNI + searchUni + "&country=" + countryInfo[0].Borders[i])
+
+		responseUni, err := http.Get(constants.READ_ALL_UNI + searchUni + "&country=" + borderCountry[0].Name.Common)
+
+		if err != nil {
+			fmt.Print(err.Error())
+			os.Exit(1)
+		}
+
+		responseUniData, err := ioutil.ReadAll(responseUni.Body)
+
+		if err != nil {
+			log.Fatal(err)
+		}
+		json.Unmarshal(responseUniData, &uniInfo2)
+		for i := 0; i < len(uniInfo2); i++ {
+			if strings.EqualFold(uniInfo2[i].CountryName, borderCountry[0].Name.Common) {
+				uniInfo2[i].SetCountryInfo(borderCountry)
+			}
+		}
+
+		uniInfo = append(uniInfo, uniInfo2...)
+	}
 
 	return uniInfo
 }
@@ -68,7 +129,7 @@ return countryInfo -> returns a single country information in a slice. Returns i
 func ReadCountriesAPI(search string) []structs.Country {
 
 	var countryInfo []structs.Country
-	response, err := http.Get(constants.READ_ALL_COUNTRIES + search)
+	response, err := http.Get(constants.READ_ALL_COUNTRIES_NAME + search)
 
 	if err != nil {
 		fmt.Print(err.Error())
