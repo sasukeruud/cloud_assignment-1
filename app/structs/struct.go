@@ -12,6 +12,7 @@ type Country struct {
 	Cca2     string   `json:"cca2"`
 	Region   string   `json:"region"`
 	Capital  []string `json:"capital"`
+	Borders  []string `json:"borders"`
 	Language struct {
 		Nno string `json:"nno"`
 		Nob string `json:"nob"`
