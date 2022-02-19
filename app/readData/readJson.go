@@ -74,11 +74,9 @@ func ReadCountryUniInfo(searchCountry, searchUni string) []structs.UniInfo {
 
 	uniInfo = ReadUniInfo(searchUni + "&country=" + countryInfo[0].Name.Common)
 
-	//for i := 0; i < len(countryInfo[0].Borders); i++ {
 	for i := 0; i < len(countryInfo[0].Borders); i++ {
 		var uniInfo2 []structs.UniInfo
 		var borderCountry []structs.Country
-		fmt.Println(countryInfo[0].Borders[i])
 
 		responseCountry, err := http.Get(constants.READ_ALL_COUNTRIES_APLHA + strings.ToLower(countryInfo[0].Borders[i]))
 
@@ -93,8 +91,6 @@ func ReadCountryUniInfo(searchCountry, searchUni string) []structs.UniInfo {
 		}
 
 		json.Unmarshal(responseCountryData, &borderCountry)
-
-		//responseUni, err := http.Get(constants.READ_ALL_UNI + searchUni + "&country=" + countryInfo[0].Borders[i])
 
 		responseUni, err := http.Get(constants.READ_ALL_UNI + searchUni + "&country=" + borderCountry[0].Name.Common)
 

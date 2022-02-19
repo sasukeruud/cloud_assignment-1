@@ -3,7 +3,6 @@ package main
 import (
 	constants "assignment_1/app"
 	"assignment_1/app/handlers"
-	"fmt"
 	"net/http"
 	"os"
 )
@@ -19,13 +18,7 @@ func getport() string {
 	return ":" + port
 }
 
-func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
-}
-
 func main() {
-	http.HandleFunc("/", HelloServer)
-
 	http.HandleFunc(constants.UNI_PATH, handlers.UniHandler)
 	http.HandleFunc(constants.COUNTRY_PATH, handlers.CountryHandler)
 	http.HandleFunc(constants.COUNTRY_UNI_PATH, handlers.UniNeighborHandler)
