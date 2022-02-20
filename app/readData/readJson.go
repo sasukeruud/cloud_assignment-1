@@ -35,14 +35,19 @@ func ReadUniInfo(search string) []structs.UniInfo {
 	json.Unmarshal(responseData, &uniInfo)
 	for i := 0; i < len(uniInfo); i++ {
 		countryInfo := ReadCountriesAPI(strings.ToLower(uniInfo[i].CountryName))
-
 		json.Unmarshal(responseData, &countryInfo)
 		uniInfo[i].SetCountryInfo(countryInfo)
 	}
 
-	return uniInfo
+	return structs.RemoveDup(uniInfo)
 }
 
+/*
+Function to read information from both of the apis.
+It uses ReadUniInfo and ReadCountriesApi.
+searchCountry string -> keyword for wich country to search after
+searchUni string -> keyword for the name of the universiety filled or only partialy
+return uniInfo -> returns a slice of data of the different universities*/
 func ReadCountryUniInfo(searchCountry, searchUni string) []structs.UniInfo {
 	countryInfo := ReadCountriesAPI(strings.ToLower(searchCountry))
 	uniInfo := ReadUniInfo(searchUni + "&country=" + countryInfo[0].Name.Common)
