@@ -1,5 +1,9 @@
 package structs
 
+import (
+	"strings"
+)
+
 /*
 Constructor for a country
 Parameters in the constructor are:
@@ -69,4 +73,20 @@ type Diag struct {
 	Counteriesapi int
 	Version       string
 	Uptime        float64
+}
+
+/*
+Function that will run a algorithm to remove duplicated universeties added to the slice.
+u []UniInfo -> slice that will be check for duplications.
+return u -> return the slice after it have been check and edited*/
+func RemoveDup(u []UniInfo) []UniInfo {
+	for i := 0; i < len(u); i++ {
+		for j := i + 1; j < len(u); j++ {
+			if strings.EqualFold(u[i].NameUni, u[j].NameUni) {
+				u = append(u[:j], u[j+1:]...)
+			}
+		}
+	}
+
+	return u
 }
