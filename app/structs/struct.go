@@ -1,9 +1,5 @@
 package structs
 
-import (
-	"strings"
-)
-
 /*
 Constructor for a country
 Parameters in the constructor are:
@@ -82,7 +78,7 @@ return u -> return the slice after it have been check and edited*/
 func RemoveDup(u []UniInfo) []UniInfo {
 	for i := 0; i < len(u); i++ {
 		for j := i + 1; j < len(u); j++ {
-			if strings.EqualFold(u[i].NameUni, u[j].NameUni) {
+			if u[i].NameUni == u[j].NameUni {
 				u = append(u[:j], u[j+1:]...)
 			}
 		}
