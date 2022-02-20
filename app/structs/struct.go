@@ -86,3 +86,13 @@ func RemoveDup(u []UniInfo) []UniInfo {
 
 	return u
 }
+
+/*
+Function to remove an element from a slice
+u []UniInfo -> slice that will be work on
+i int -> number how wich element in the slice that will be removed
+return []UniInfo -> returns a new slice*/
+func RemoveElement(u []UniInfo, i int) []UniInfo {
+	u[i] = u[len(u)-1]
+	return u[:len(u)-1]
+}
