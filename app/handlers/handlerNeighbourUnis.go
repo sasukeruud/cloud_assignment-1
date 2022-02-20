@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
+	"strconv"
 	"strings"
 )
 
@@ -26,15 +28,24 @@ some of the code is taken from: https://git.gvk.idi.ntnu.no/course/prog2005/prog
 It has been modified to fit this application*/
 func handlerGetRequestUniNeighbor(w http.ResponseWriter, r *http.Request) {
 	search := strings.SplitAfter(r.URL.Path, "/")
+	var query int
 
-	query := r.URL.Query()
-	fmt.Println(query)
+	if r.URL.Query().Get("limit") != "" {
+		queryTest, err := strconv.Atoi(r.URL.Query().Get("limit"))
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(2)
+		}
+		query = queryTest
+	} else {
+		query = 0
+	}
 
 	w.Header().Set("contet-type", "application/json")
 
 	encoder := json.NewEncoder(w)
 
-	err := encoder.Encode(read.ReadCountryUniInfo(search[4], search[5]))
+	err := encoder.Encode(read.ReadCountryUniInfo(search[4], search[5], query))
 	if err != nil {
 		http.Error(w, "Error during encoding", http.StatusInternalServerError)
 	}

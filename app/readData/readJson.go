@@ -48,7 +48,7 @@ It uses ReadUniInfo and ReadCountriesApi.
 searchCountry string -> keyword for wich country to search after
 searchUni string -> keyword for the name of the universiety filled or only partialy
 return uniInfo -> returns a slice of data of the different universities*/
-func ReadCountryUniInfo(searchCountry, searchUni string) []structs.UniInfo {
+func ReadCountryUniInfo(searchCountry, searchUni string, remove int) []structs.UniInfo {
 	countryInfo := ReadCountriesAPI(strings.ToLower(searchCountry), constants.SEARCH_NAME)
 	uniInfo := ReadUniInfo(searchUni + "&country=" + countryInfo[0].Name.Common)
 
@@ -59,6 +59,12 @@ func ReadCountryUniInfo(searchCountry, searchUni string) []structs.UniInfo {
 		for i := 0; i < len(uniInfo2); i++ {
 			if strings.EqualFold(uniInfo2[i].CountryName, borderCountry[0].Name.Common) {
 				uniInfo2[i].SetCountryInfo(borderCountry)
+			}
+		}
+
+		for i := 0; i < len(uniInfo2); i++ {
+			if len(uniInfo2) < remove {
+				uniInfo2 = structs.RemoveElement(uniInfo2, 1)
 			}
 		}
 
