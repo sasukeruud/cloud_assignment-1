@@ -34,7 +34,7 @@ func ReadUniInfo(search string) []structs.UniInfo {
 
 	json.Unmarshal(responseData, &uniInfo)
 	for i := 0; i < len(uniInfo); i++ {
-		countryInfo := ReadCountriesAPI(strings.ToLower(uniInfo[i].CountryName))
+		countryInfo := ReadCountriesAPI(strings.ToLower(uniInfo[i].CountryName), constants.SEARCH_NAME)
 		json.Unmarshal(responseData, &countryInfo)
 		uniInfo[i].SetCountryInfo(countryInfo)
 	}
@@ -49,26 +49,11 @@ searchCountry string -> keyword for wich country to search after
 searchUni string -> keyword for the name of the universiety filled or only partialy
 return uniInfo -> returns a slice of data of the different universities*/
 func ReadCountryUniInfo(searchCountry, searchUni string) []structs.UniInfo {
-	countryInfo := ReadCountriesAPI(strings.ToLower(searchCountry))
+	countryInfo := ReadCountriesAPI(strings.ToLower(searchCountry), constants.SEARCH_NAME)
 	uniInfo := ReadUniInfo(searchUni + "&country=" + countryInfo[0].Name.Common)
 
 	for i := 0; i < len(countryInfo[0].Borders); i++ {
-		var borderCountry []structs.Country
-
-		responseCountry, err := http.Get(constants.READ_ALL_COUNTRIES_APLHA + strings.ToLower(countryInfo[0].Borders[i]))
-
-		if err != nil {
-			fmt.Print(err.Error())
-			os.Exit(1)
-		}
-
-		responseCountryData, err := ioutil.ReadAll(responseCountry.Body)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		json.Unmarshal(responseCountryData, &borderCountry)
-
+		borderCountry := ReadCountriesAPI(strings.ToLower(countryInfo[0].Borders[i]), constants.SEARCH_APLHA)
 		uniInfo2 := ReadUniInfo(searchUni + "&country=" + borderCountry[0].Name.Common)
 
 		for i := 0; i < len(uniInfo2); i++ {
@@ -88,22 +73,38 @@ Function to read information from the https://restcountries.com/v3.1/ api.
 The const READ_ALL_COUNTRIES is the URL for the api.
 var search string -> varible for what to be search for
 return countryInfo -> returns a single country information in a slice. Returns in a slice because json saves information in slices*/
-func ReadCountriesAPI(search string) []structs.Country {
+func ReadCountriesAPI(search, option string) []structs.Country {
 	var countryInfo []structs.Country
 
-	response, err := http.Get(constants.READ_ALL_COUNTRIES_NAME + search)
+	switch option {
+	case constants.SEARCH_NAME:
+		response, err := http.Get(constants.READ_ALL_COUNTRIES_NAME + search)
 
-	if err != nil {
-		fmt.Print(err.Error())
-		os.Exit(1)
+		if err != nil {
+			fmt.Print(err.Error())
+			os.Exit(1)
+		}
+
+		responseData, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+		json.Unmarshal(responseData, &countryInfo)
+	case constants.SEARCH_APLHA:
+		response, err := http.Get(constants.READ_ALL_COUNTRIES_APLHA + search)
+
+		if err != nil {
+			fmt.Print(err.Error())
+			os.Exit(1)
+		}
+
+		responseData, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		json.Unmarshal(responseData, &countryInfo)
 	}
-
-	responseData, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	json.Unmarshal(responseData, &countryInfo)
 
 	return countryInfo
 }
