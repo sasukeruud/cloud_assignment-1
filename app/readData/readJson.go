@@ -39,7 +39,8 @@ func ReadUniInfo(search string) []structs.UniInfo {
 		uniInfo[i].SetCountryInfo(countryInfo)
 	}
 
-	return structs.RemoveDup(uniInfo)
+	//return structs.RemoveDup(uniInfo)
+	return uniInfo
 }
 
 /*
