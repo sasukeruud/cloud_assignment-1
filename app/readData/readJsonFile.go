@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 )
 
 func loadCountry() []structs.Country {
@@ -32,6 +33,35 @@ func loadCountry() []structs.Country {
 }
 
 func saveCountry(country []structs.Country, name string) {
+	loadCountry := loadCountry()
+
+	if loadCountry != nil {
+		if country[0].Name.Common != loadCountry[0].Name.Common {
+			for i := 0; i < len(loadCountry); i++ {
+				if strings.EqualFold(loadCountry[i].Name.Common, name) {
+					temp := loadCountry[i]
+					for i := len(loadCountry) - 1; i > 0; i-- {
+						country[i] = country[i-1]
+						country[i-1] = temp
+					}
+				}
+			}
+		} else {
+			for i := 0; i < len(loadCountry); i++ {
+				if strings.EqualFold(loadCountry[i].Name.Common, name) {
+					temp := loadCountry[i]
+					for i := len(loadCountry) - 1; i > 0; i-- {
+						country[i] = country[i-1]
+						country[i-1] = temp
+					}
+				}
+			}
+		}
+		loadCountry = structs.RemoveDup(loadCountry)
+		country = append(country, loadCountry...)
+		country = structs.RemoveDup(country)
+	}
+
 	file, err := json.MarshalIndent(country, "", " ")
 
 	if err != nil {
