@@ -6,8 +6,7 @@ Parameters in the constructor are:
 Name, Cca2, Region, Capital, Borders, Languages, Maps*/
 type Country struct {
 	Name struct {
-		Common   string `json:"common"`
-		Official string `json:"official"`
+		Common string `json:"common"`
 	} `json:"name"`
 	Cca2      string   `json:"cca2"`
 	Borders   []string `json:"borders"`
@@ -375,6 +374,7 @@ func RemoveDup(u []Country) []Country {
 		for j := i + 1; j < len(u); j++ {
 			if u[i].Name.Common == u[j].Name.Common {
 				u = append(u[:j], u[j+1:]...)
+				break
 			}
 		}
 	}
