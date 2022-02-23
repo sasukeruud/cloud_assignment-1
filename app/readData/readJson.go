@@ -68,7 +68,7 @@ func ReadCountryUniInfo(searchCountry, searchUni string, remove int) []structs.U
 				uniInfo2 = structs.RemoveElement(uniInfo2, 1)
 			}
 		}
-
+		//fmt.Print(uniInfo2[0].Languages)
 		uniInfo = append(uniInfo, uniInfo2...)
 	}
 
@@ -88,6 +88,8 @@ func ReadCountriesAPI(search, option string) []structs.Country {
 			return countryInfo
 		}
 	}
+
+	countryInfo = nil
 
 	switch option {
 	case constants.SEARCH_NAME:
