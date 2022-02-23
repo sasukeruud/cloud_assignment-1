@@ -63,8 +63,8 @@ func ReadCountryUniInfo(searchCountry, searchUni string, remove int) []structs.U
 			}
 		}
 
-		for i := 0; i < len(uniInfo2); i++ {
-			if len(uniInfo2) < remove {
+		for i := 0; i < len(uniInfo2)+1; i++ {
+			if len(uniInfo2) >= remove && remove != 0 {
 				uniInfo2 = structs.RemoveElement(uniInfo2, 1)
 			}
 		}
