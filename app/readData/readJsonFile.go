@@ -37,17 +37,17 @@ func saveCountry(country []structs.Country, name string) {
 
 	if loadCountry != nil {
 		for i := 0; i < len(loadCountry); i++ {
-			if strings.EqualFold(loadCountry[i].Name.Common, name) {
+			if strings.EqualFold(loadCountry[i].Name.Common, name) || strings.EqualFold(loadCountry[i].Cca2, name) {
 				temp := loadCountry[i]
 				for j := i - 1; j > 0; j-- {
 					country[j] = country[j-1]
 					country[j-1] = temp
 				}
+				break
 			}
 		}
 		loadCountry = structs.RemoveDup(loadCountry)
-		country = append(country, loadCountry...)
-		country = structs.RemoveDup(country)
+		country = structs.RemoveDup(append(country, loadCountry...))
 	}
 
 	if len(country) > 50 {
