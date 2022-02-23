@@ -83,6 +83,15 @@ return countryInfo -> returns a single country information in a slice. Returns i
 func ReadCountriesAPI(search, option string) []structs.Country {
 	var countryInfo []structs.Country
 
+	countryInfo = loadCountry()
+	for i := 0; i < len(countryInfo); i++ {
+		if strings.EqualFold(countryInfo[i].Name.Common, search) {
+			fmt.Println("test1")
+			saveCountry(countryInfo, search)
+			return countryInfo
+		}
+	}
+
 	switch option {
 	case constants.SEARCH_NAME:
 		response, err := http.Get(constants.READ_ALL_COUNTRIES_NAME + search)
@@ -112,6 +121,8 @@ func ReadCountriesAPI(search, option string) []structs.Country {
 
 		json.Unmarshal(responseData, &countryInfo)
 	}
+
+	saveCountry(countryInfo, search)
 
 	return countryInfo
 }
