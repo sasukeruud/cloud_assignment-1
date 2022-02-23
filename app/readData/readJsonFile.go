@@ -32,7 +32,7 @@ func loadCountry() []structs.Country {
 	return countries
 }
 
-func saveCountry(country []structs.Country, name string) {
+func saveCountry(countries []structs.Country, name string) {
 	loadCountry := loadCountry()
 
 	if loadCountry != nil {
@@ -40,24 +40,24 @@ func saveCountry(country []structs.Country, name string) {
 			if strings.EqualFold(loadCountry[i].Name.Common, name) || strings.EqualFold(loadCountry[i].Cca2, name) {
 				temp := loadCountry[i]
 				for j := i - 1; j > 0; j-- {
-					country[j] = country[j-1]
-					country[j-1] = temp
+					countries[j] = countries[j-1]
+					countries[j-1] = temp
 				}
 				break
 			}
 		}
 		loadCountry = structs.RemoveDup(loadCountry)
-		country = structs.RemoveDup(append(country, loadCountry...))
+		countries = structs.RemoveDup(append(countries, loadCountry...))
 	}
 
-	if len(country) > 50 {
-		for i := len(country) - 1; i > 30; i-- {
-			structs.RemoveElementCountry(country, i)
+	if len(countries) > 50 {
+		for i := len(countries) - 1; i > 30; i-- {
+			structs.RemoveElementCountry(countries, i)
 		}
 		fmt.Println("1")
 	}
 
-	file, err := json.MarshalIndent(country, "", " ")
+	file, err := json.MarshalIndent(countries, "", " ")
 
 	if err != nil {
 		log.Fatal(err)
