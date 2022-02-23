@@ -1,2 +1,3 @@
 #Ignores all .exe files
 *.exe
+countries.json
