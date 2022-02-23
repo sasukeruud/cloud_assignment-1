@@ -14,11 +14,12 @@ type Country struct {
 	Capital  []string `json:"capital"`
 	Borders  []string `json:"borders"`
 	Language struct {
-		Nno string `json:"nno"`
+		Nno string `json:"nno,omitempty"`
 		Nob string `json:"nob"`
 		Smi string `json:"smi"`
 	} `json:"languages,omitempty"`
 	Maps struct {
+		GoogleMaps     string `json:"googleMaps"`
 		OpenStreetMaps string `json:"openStreetMaps"`
 	} `json:"maps"`
 }
@@ -37,11 +38,12 @@ type UniInfo struct {
 	Cca2        string   `json:"cca2"`
 	Capital     []string `json:"capital"`
 	Language    struct {
-		Nno string `json:"nno"`
+		Nno string `json:"nno,omitempty"`
 		Nob string `json:"nob"`
 		Smi string `json:"smi"`
 	} `json:"languages,omitempty"`
 	Maps struct {
+		GoogleMaps     string `json:"googleMaps"`
 		OpenStreetMaps string `json:"openStreetMaps"`
 	} `json:"maps"`
 }
