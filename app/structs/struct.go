@@ -175,8 +175,7 @@ type Country struct {
 /*
 Constructor for university information.
 Parameter in the constructor is:
-Webpage, NameUni, Domains, CountryName, Cca2, Capital, Maps, Languages
-*/
+Webpage, NameUni, Domains, CountryName, Cca2, Capital, Maps, Languages*/
 type UniInfo struct {
 	Webpage     []string `json:"web_pages"`
 	NameUni     string   `json:"name"`
@@ -349,8 +348,7 @@ Setter function.
 The fields it will edit is:
 Cca2, Capital, Language, Maps
 o *UniInfo -> says that it is a UniInfo object that the function will work on
-country []Country -> country slice needed for the function to do it's functions
-*/
+country []Country -> country slice needed for the function to do it's functions*/
 func (o *UniInfo) SetCountryInfo(country []Country) {
 	o.Cca2 = country[0].Cca2
 	o.Languages = country[0].Languages
@@ -394,7 +392,12 @@ func RemoveElement(u []UniInfo, i int) []UniInfo {
 	return u[:len(u)-1]
 }
 
-func RemoveElementCountry(u []Country, i int) []Country {
-	u[i] = u[len(u)-1]
-	return u[:len(u)-1]
+/*
+Function to remove an element from a slice
+c []Country -> slice that will be work on
+i int -> number how wich element in the slice that will be removed
+return []Country -> returns a new slice*/
+func RemoveElementCountry(c []Country, i int) []Country {
+	c[i] = c[len(c)-1]
+	return c[:len(c)-1]
 }
