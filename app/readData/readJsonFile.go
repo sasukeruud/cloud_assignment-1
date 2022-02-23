@@ -36,24 +36,12 @@ func saveCountry(country []structs.Country, name string) {
 	loadCountry := loadCountry()
 
 	if loadCountry != nil {
-		if country[0].Name.Common != loadCountry[0].Name.Common {
-			for i := 0; i < len(loadCountry); i++ {
-				if strings.EqualFold(loadCountry[i].Name.Common, name) {
-					temp := loadCountry[i]
-					for i := len(loadCountry) - 1; i > 0; i-- {
-						country[i] = country[i-1]
-						country[i-1] = temp
-					}
-				}
-			}
-		} else {
-			for i := 0; i < len(loadCountry); i++ {
-				if strings.EqualFold(loadCountry[i].Name.Common, name) {
-					temp := loadCountry[i]
-					for i := len(loadCountry) - 1; i > 0; i-- {
-						country[i] = country[i-1]
-						country[i-1] = temp
-					}
+		for i := 0; i < len(loadCountry); i++ {
+			if strings.EqualFold(loadCountry[i].Name.Common, name) {
+				temp := loadCountry[i]
+				for j := i - 1; j > 0; j-- {
+					country[j] = country[j-1]
+					country[j-1] = temp
 				}
 			}
 		}
