@@ -30,3 +30,21 @@ func loadCountry() []structs.Country {
 
 	return countries
 }
+
+func saveCountry(country []structs.Country, name string) {
+	file, err := json.MarshalIndent(country, "", " ")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	ioutil.WriteFile("res/countries.json", file, 0644)
+
+	f, err := os.OpenFile("res/countries.json", os.O_CREATE|os.O_RDWR, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	f.Write(file)
+	defer f.Close()
+}
