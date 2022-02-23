@@ -62,6 +62,13 @@ func saveCountry(country []structs.Country, name string) {
 		country = structs.RemoveDup(country)
 	}
 
+	if len(country) > 50 {
+		for i := len(country) - 1; i > 30; i-- {
+			structs.RemoveElementCountry(country, i)
+		}
+		fmt.Println("1")
+	}
+
 	file, err := json.MarshalIndent(country, "", " ")
 
 	if err != nil {

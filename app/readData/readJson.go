@@ -86,7 +86,6 @@ func ReadCountriesAPI(search, option string) []structs.Country {
 	countryInfo = loadCountry()
 	for i := 0; i < len(countryInfo); i++ {
 		if strings.EqualFold(countryInfo[i].Name.Common, search) {
-			fmt.Println("test1")
 			saveCountry(countryInfo, search)
 			return countryInfo
 		}
