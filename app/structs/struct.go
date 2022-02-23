@@ -77,10 +77,10 @@ type Diag struct {
 Function that will run a algorithm to remove duplicated universeties added to the slice.
 u []UniInfo -> slice that will be check for duplications.
 return u -> return the slice after it have been check and edited*/
-func RemoveDup(u []UniInfo) []UniInfo {
+func RemoveDup(u []Country) []Country {
 	for i := 0; i < len(u); i++ {
 		for j := i + 1; j < len(u); j++ {
-			if u[i].NameUni == u[j].NameUni {
+			if u[i].Name.Common == u[j].Name.Common {
 				u = append(u[:j], u[j+1:]...)
 			}
 		}
