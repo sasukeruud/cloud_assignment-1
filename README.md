@@ -23,7 +23,7 @@ To build an .exe file(executibale file) you can run the command "go build app\cm
 There is three different URLs avaieble to use from this api.
 
 - /unisearcher/v1/uniinfo/
-  This URL is used to search up different universeties from the URL.           /unisearcher/v1/uniinfo/xxxx the xxxx is were you will use a keyword for the search. 
+  This URL is used to search up different universeties from the URL. /unisearcher/v1/uniinfo/xxxx the xxxx is were you will use a keyword for the search. 
 
 - /unisearcher/v1/diag/
   This URL will give out information about this api and if the other apis used for it is availeble.
