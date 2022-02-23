@@ -98,3 +98,8 @@ func RemoveElement(u []UniInfo, i int) []UniInfo {
 	u[i] = u[len(u)-1]
 	return u[:len(u)-1]
 }
+
+func RemoveElementCountry(u []Country, i int) []Country {
+	u[i] = u[len(u)-1]
+	return u[:len(u)-1]
+}
