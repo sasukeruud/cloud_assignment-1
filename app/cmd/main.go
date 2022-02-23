@@ -19,6 +19,7 @@ func getport() string {
 }
 
 func main() {
+	http.HandleFunc(constants.DEFAULT_PAGE, handlers.DeafultHandler)
 	http.HandleFunc(constants.UNI_PATH, handlers.UniHandler)
 	http.HandleFunc(constants.COUNTRY_UNI_PATH, handlers.UniNeighborHandler)
 	http.HandleFunc(constants.DIAG_PATH, handlers.DiagHandler)
