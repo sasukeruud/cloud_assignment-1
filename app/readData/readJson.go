@@ -81,9 +81,7 @@ The const READ_ALL_COUNTRIES is the URL for the api.
 var search string -> varible for what to be search for
 return countryInfo -> returns a single country information in a slice. Returns in a slice because json saves information in slices*/
 func ReadCountriesAPI(search, option string) []structs.Country {
-	var countryInfo []structs.Country
-
-	countryInfo = loadCountry()
+	countryInfo := loadCountry()
 	for i := 0; i < len(countryInfo); i++ {
 		if strings.EqualFold(countryInfo[i].Name.Common, search) {
 			saveCountry(countryInfo, search)

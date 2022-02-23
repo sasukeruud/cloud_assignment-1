@@ -10,8 +10,6 @@ type Country struct {
 		Official string `json:"official"`
 	} `json:"name"`
 	Cca2     string   `json:"cca2"`
-	Region   string   `json:"region"`
-	Capital  []string `json:"capital"`
 	Borders  []string `json:"borders"`
 	Language struct {
 		Nno string `json:"nno,omitempty"`
@@ -36,7 +34,6 @@ type UniInfo struct {
 	Domains     []string `json:"domains"`
 	CountryName string   `json:"country"`
 	Cca2        string   `json:"cca2"`
-	Capital     []string `json:"capital"`
 	Language    struct {
 		Nno string `json:"nno,omitempty"`
 		Nob string `json:"nob"`
@@ -57,7 +54,6 @@ country []Country -> country slice needed for the function to do it's functions
 */
 func (o *UniInfo) SetCountryInfo(country []Country) {
 	o.Cca2 = country[0].Cca2
-	o.Capital = country[0].Capital
 	o.Language = country[0].Language
 	o.Maps = country[0].Maps
 }
