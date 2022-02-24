@@ -28,9 +28,11 @@ There is three different URLs avaieble to use from this api.
 ```
                   GET request:
                     /unisearcher/v1/uniinfo/norway
-                    Will search for all universities that have norway in it`s name and connect all the different countries information to it too
+                    Will search for all universities that have norway in it`s name and connect all the different countries 
+                    information to it too
 ```
 Body example:
+
 ```
 [
   {
@@ -68,10 +70,13 @@ Body example:
   ```
                   GET request:
                   /unisearcher/v1/neighbourunis/norway/science?limit=5
-                  Will search for all universities that have science in there name in norway and in bordering countries. With using limit there will be a limit on how many universities from each bordring country will be listed, all univerities from the main country will be listed. 
+                  Will search for all universities that have science in there name in norway and in bordering countries. 
+                  With using limit there will be a limit on how many universities from each bordring country will be 
+                  listed, all univerities from the main country will be listed. 
   ```
-  Body example:
-  ```
+
+Body example:
+```
 [
   {
       "name": "Norwegian University of Science and Technology",
@@ -115,7 +120,7 @@ Body example:
   },
   ...
 ]  
-  ```
+```
 
 - /unisearcher/v1/diag/  
   This URL will give out information about this api and if there is connection with the other apis
