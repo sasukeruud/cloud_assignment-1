@@ -41,12 +41,19 @@ func handlerGetRequestUniNeighbor(w http.ResponseWriter, r *http.Request) {
 		query = 0
 	}
 
-	w.Header().Set("contet-type", "application/json")
+	if len(search) == 6 && search[5] != "" {
+		w.Header().Set("contet-type", "application/json")
 
-	encoder := json.NewEncoder(w)
+		encoder := json.NewEncoder(w)
 
-	err := encoder.Encode(read.ReadCountryUniInfo(search[4], search[5], query))
-	if err != nil {
-		http.Error(w, "Error during encoding", http.StatusInternalServerError)
+		err := encoder.Encode(read.ReadCountryUniInfo(search[4], search[5], query))
+		if err != nil {
+			http.Error(w, "Error during encoding", http.StatusInternalServerError)
+		}
+	} else {
+		fmt.Fprintf(w, "To search enter a valid search parameters \n")
+		fmt.Fprintf(w, "eks: "+r.URL.Path[1:]+"norway/science\n")
+		fmt.Fprintf(w, "or eks: "+r.URL.Path[1:]+"norway/science?limit=3")
 	}
+
 }
