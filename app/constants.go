@@ -10,3 +10,4 @@ const READ_ALL_COUNTRIES_APLHA = "https://restcountries.com/v3.1/alpha/"
 const SEARCH_NAME = "name"
 const SEARCH_APLHA = "aplha"
 const DEFAULT_PAGE = "/"
+const JSON_LIMIT = 50
