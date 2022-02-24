@@ -25,10 +25,12 @@ There is three different URLs avaieble to use from this api.
 
 - /unisearcher/v1/uniinfo/
   This URL is used to search up different universeties from the URL. /unisearcher/v1/uniinfo/xxxx the xxxx is were you will use a keyword for the search. There is no limit for what you can use as a keyword.
+```
                     /unisearcher/v1/uniinfo/norway
                     Will search for all universities that have norway in it`s name
-
+```
 Body example
+```
                   [
                     {
                       "name": "Norway's Information Technology University College",
@@ -49,7 +51,9 @@ Body example
                         "googleMaps": "https://goo.gl/maps/htWRrphA7vNgQNdSA",
                         "openStreetMaps": "https://www.openstreetmap.org/relation/2978650"
                       }
-                    },...              
+                    },...            
+```                    
+                      
 
 - /unisearcher/v1/neighbourunis/
 
