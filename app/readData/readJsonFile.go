@@ -36,14 +36,17 @@ func saveCountry(countries []structs.Country, name string) {
 	loadCountry := loadCountry()
 
 	if loadCountry != nil {
+		if strings.EqualFold(loadCountry[0].Name.Common, name) {
+			return
+		}
 		for i := 0; i < len(loadCountry); i++ {
 			if strings.EqualFold(loadCountry[i].Name.Common, name) || strings.EqualFold(loadCountry[i].Cca2, name) {
 				temp := loadCountry[i]
-				for j := i - 1; j > 0; j-- {
-					countries[j] = countries[j-1]
-					countries[j-1] = temp
+				for j := i - 1; j > 0; j-- { //Starts from where to country was located, and moves backwords
+					countries[j] = countries[j-1] //moves the element to the right
+					countries[j-1] = temp         //moves the element to the left
 				}
-				break
+				break //Goes out of loop when it's finished
 			}
 		}
 		loadCountry = structs.RemoveDup(loadCountry)
@@ -54,7 +57,6 @@ func saveCountry(countries []structs.Country, name string) {
 		for i := len(countries) - 1; i > 30; i-- {
 			structs.RemoveElementCountry(countries, i)
 		}
-		fmt.Println("1")
 	}
 
 	file, err := json.MarshalIndent(countries, "", " ")
