@@ -58,9 +58,9 @@ func saveCountry(countries []structs.Country, name string) {
 				break //Goes out of loop when it's finished
 			}
 		}
-		loadCountry = structs.RemoveDup(loadCountry)
-		countries = structs.RemoveDup(append(countries, loadCountry...))
 	}
+
+	countries = structs.RemoveDup(append(countries, loadCountry...))
 
 	if len(countries) > constants.JSON_LIMIT {
 		for i := len(countries) - 1; i > constants.JSON_LIMIT; i-- { //Goes from last element of slice and removes an object
