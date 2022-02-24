@@ -370,11 +370,10 @@ Function that will run a algorithm to remove duplicated universeties added to th
 u []UniInfo -> slice that will be check for duplications.
 return u -> return the slice after it have been check and edited*/
 func RemoveDup(u []Country) []Country {
-	for i := 0; i < len(u); i++ {
-		for j := i + 1; j < len(u); j++ {
+	for i := 0; i < len(u)-1; i++ {
+		for j := i + 1; j < len(u)-1; j++ {
 			if u[i].Name.Common == u[j].Name.Common {
-				u = append(u[:j], u[j+1:]...)
-				break
+				u = RemoveElementCountry(u, j)
 			}
 		}
 	}
