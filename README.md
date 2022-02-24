@@ -24,37 +24,39 @@ Or use the URL: https://robinruassignment1.herokuapp.com/ where it is deployed.
 There is three different URLs avaieble to use from this api.
 
 - /unisearcher/v1/uniinfo/
-  This URL is used to search up different universeties from the URL. /unisearcher/v1/uniinfo/xxxx the xxxx is were you will use a keyword for the search. There is no limit for what you can use as a keyword.
+  This URL is used to search up different universeties from the URL. /unisearcher/v1/uniinfo/xxxx the xxxx is were you will use a keyword for the search. There is no limit for what you can use as a keyword. It`s not key sensetiv when it comes to the keyword writen.
 ```
+                  GET request:
                     /unisearcher/v1/uniinfo/norway
-                    Will search for all universities that have norway in it`s name
+                    Will search for all universities that have norway in it`s name and connect all the different countries information to it too
 ```
-Body example
+Body example:
 ```
-                  [
-                    {
-                      "name": "Norway's Information Technology University College",
-                      "web_pages": [
-                        "http://www.nith.no/"
-                      ],
-                      "domains": [
-                        "nith.no"
-                      ],
-                      "country": "Norway",
-                      "cca2": "NO",
-                      "languages": {
-                        "nno": "Norwegian Nynorsk",
-                        "nob": "Norwegian Bokmål",
-                        "smi": "Sami"
-                      },
-                      "maps": {
-                        "googleMaps": "https://goo.gl/maps/htWRrphA7vNgQNdSA",
-                        "openStreetMaps": "https://www.openstreetmap.org/relation/2978650"
-                      }
-                    },...            
+[
+  {
+  "name": "Norway's Information Technology University College",
+  "web_pages": [
+  "http://www.nith.no/"
+  ],
+  "domains": [
+    "nith.no"
+  ],
+  "country": "Norway",
+  "cca2": "NO",
+  "languages": {
+    "nno": "Norwegian Nynorsk",
+    "nob": "Norwegian Bokmål",
+    "smi": "Sami"
+  },
+  "maps": {
+    "googleMaps": "https://goo.gl/maps/htWRrphA7vNgQNdSA",
+    "openStreetMaps": "https://www.openstreetmap.org/relation/2978650"
+  }
+  },
+  ...
+]            
 ```                    
                       
-
 - /unisearcher/v1/neighbourunis/
 
 - /unisearcher/v1/diag/
