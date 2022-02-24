@@ -176,8 +176,8 @@ Constructor for university information.
 Parameter in the constructor is:
 Webpage, NameUni, Domains, CountryName, Cca2, Capital, Maps, Languages*/
 type UniInfo struct {
-	Webpage     []string `json:"web_pages"`
 	NameUni     string   `json:"name"`
+	Webpage     []string `json:"web_pages"`
 	Domains     []string `json:"domains"`
 	CountryName string   `json:"country"`
 	Cca2        string   `json:"cca2"`
