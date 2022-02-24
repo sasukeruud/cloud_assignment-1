@@ -18,17 +18,43 @@ In the following, you will find the specification for the REST API exposed to th
 ## How to run the application
 Fastes way to run the application is to run "go run app\cmd\main.go" in the terminal in the main directory.
 To build an .exe file(executibale file) you can run the command "go build app\cmd\main.go" in the terminal.
+Or use the URL: https://robinruassignment1.herokuapp.com/ where it is deployed. 
 
-## How to use the api
+### How to use the api
 There is three different URLs avaieble to use from this api.
 
 - /unisearcher/v1/uniinfo/
-  This URL is used to search up different universeties from the URL. /unisearcher/v1/uniinfo/xxxx the xxxx is were you will use a keyword for the search. 
+  This URL is used to search up different universeties from the URL. /unisearcher/v1/uniinfo/xxxx the xxxx is were you will use a keyword for the search. There is no limit for what you can use as a keyword.
+                    /unisearcher/v1/uniinfo/norway
+                    Will search for all universities that have norway in it`s name
+
+Body example
+                  [
+                    {
+                      "name": "Norway's Information Technology University College",
+                      "web_pages": [
+                        "http://www.nith.no/"
+                      ],
+                      "domains": [
+                        "nith.no"
+                      ],
+                      "country": "Norway",
+                      "cca2": "NO",
+                      "languages": {
+                        "nno": "Norwegian Nynorsk",
+                        "nob": "Norwegian Bokmål",
+                        "smi": "Sami"
+                      },
+                      "maps": {
+                        "googleMaps": "https://goo.gl/maps/htWRrphA7vNgQNdSA",
+                        "openStreetMaps": "https://www.openstreetmap.org/relation/2978650"
+                      }
+                    },...              
+
+- /unisearcher/v1/neighbourunis/
 
 - /unisearcher/v1/diag/
-  This URL will give out information about this api and if the other apis used for it is availeble.
-
-- /unisearcher/v1/
+  This URL will give out information about this api and if there is connection with the other apis
 
 ## Credits
 Made by Robin Ruud Kristensen
@@ -37,7 +63,6 @@ There is code directery taken from other poeple to make the application better o
 Refrence code links:
 - https://go.dev/doc/articles/wiki/
 - https://git.gvk.idi.ntnu.no/course/prog2005/prog2005-2022/-/tree/main/02-JSON-demo
-- 
 
 ## License
                     GNU GENERAL PUBLIC LICENSE
