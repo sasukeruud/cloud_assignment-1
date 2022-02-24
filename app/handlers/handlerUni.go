@@ -3,6 +3,7 @@ package handlers
 import (
 	read "assignment_1/app/readData"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"path"
 )
@@ -26,12 +27,17 @@ It has been modified to fit this application*/
 func handlerGetRequestUni(w http.ResponseWriter, r *http.Request) {
 	search := path.Base(r.URL.Path)
 
-	w.Header().Set("contet-type", "application/json")
+	if search != "uniinfo" {
+		w.Header().Set("contet-type", "application/json")
 
-	encoder := json.NewEncoder(w)
+		encoder := json.NewEncoder(w)
 
-	err := encoder.Encode(read.ReadUniInfo(search))
-	if err != nil {
-		http.Error(w, "Error during encoding", http.StatusInternalServerError)
+		err := encoder.Encode(read.ReadUniInfo(search))
+		if err != nil {
+			http.Error(w, "Error during encoding", http.StatusInternalServerError)
+		}
+	} else {
+		fmt.Fprintf(w, "To search enter a valid search parameter \n")
+		fmt.Fprintf(w, "eks: "+r.URL.Path[1:]+"norway")
 	}
 }
