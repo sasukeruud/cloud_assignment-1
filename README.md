@@ -1,4 +1,5 @@
 # assignment_1
+Heroku instance is not running at the movement
 ## Assignment task description
 First assignment from the cloud technologi class(prog2005-2022).
 This program is "develop using REST web application for retriving information about universities that may be candidates for application based on their name, alongside useful contextual information pertaining to the country it is situated in. For this purpose, you will interrogate existing web services and return the result in a given output format." Is the task of the assignment. 
